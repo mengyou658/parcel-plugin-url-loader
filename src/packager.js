@@ -1,10 +1,10 @@
 const url = require('url')
 const { basename, extname, parse, join, dirname } = require('path')
-const JSPackager = require('parcel-bundler/lib/packagers/JSPackager')
+const JSPackager = require('parcel-bundler/src/packagers/JSPackager')
 const { read, write } = require('./utils')
 const { getOptions } = require('./config')
 
-class Packager extends JSPackager {
+class MyPackager extends JSPackager {
   async addAsset (asset) {
     if (this.dedupe.has(asset.generated.js)) {
       return
@@ -61,4 +61,4 @@ class Packager extends JSPackager {
   }
 }
 
-module.exports = Packager
+module.exports = MyPackager

@@ -23,15 +23,10 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@babel/cli": "^7.0.0-beta.38",
-    "@babel/polyfill": "^7.0.0-beta.38",
-    "log4js": "^2.5.2",
     "mime": "^2.0.3",
     "rimraf": "^2.5.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.38",
-    "@babel/preset-env": "^7.0.0-beta.38",
     "parcel-bundler": "^1.5.0"
   }
 }

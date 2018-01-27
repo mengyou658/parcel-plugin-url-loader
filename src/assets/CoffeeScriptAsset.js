@@ -1,8 +1,8 @@
-const Asset = require('parcel-bundler/lib/assets/CoffeeScriptAsset')
+const Asset = require('parcel-bundler/src/assets/CoffeeScriptAsset')
 const generateBundleName = require('../generateBundleName')
 
 class CoffeeScriptAsset extends Asset {
-  generateBundleName() {    return generateBundleName(this)  }
+  generateBundleName() {    return generateBundleName.bind(this)()  }
 }
 
 module.exports = CoffeeScriptAsset;

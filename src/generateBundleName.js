@@ -1,39 +1,37 @@
 const path = require('path');
-const md5 = require('parcel-bundler/lib/utils/md5')
+const md5 = require('parcel-bundler/src/utils/md5')
 const sanitizeFilename = require('sanitize-filename');
 
-var generateBundleName = (target) => {
+var generateBundleName = () => {
   // Resolve the main file of the package.json
+  console.log('generateBundleName:')
   let main =
-    target.package && target.package.main
-      ? path.resolve(path.dirname(target.package.pkgfile), target.package.main)
+    this.package && this.package.main
+      ? path.resolve(path.dirname(this.package.pkgfile), this.package.main)
       : null;
-  let ext = '.' + target.type;
+  let ext = '.' + this.type;
 
-  // If target asset is main file of the package, use the sanitized package name
-  if (target.name === main) {
-    const packageName = sanitizeFilename(target.package.name, {
+  // If this asset is main file of the package, use the sanitized package name
+  if (this.name === main) {
+    const packageName = sanitizeFilename(this.package.name, {
       replacement: '-'
     });
-    console.log('packageName:', packageName, target.type, target.name)
     return packageName + ext;
   }
 
-  // If target is the entry point of the root bundle, use the original filename
-  if (target.name === target.options.mainFile) {
-    console.log('basename:', target.type, target.name)
-    return path.basename(target.name, path.extname(target.name)) + ext;
+  // If this is the entry point of the root bundle, use the original filename
+  if (this.name === this.options.mainFile) {
+    return path.basename(this.name, path.extname(this.name)) + ext;
   }
 
   // Otherwise generate a unique name
-  var res = md5(target.name) + ext;
-  const {assets} = target.options.pluginsOption
-  if (assets && assets[target.type]) {
-    res = assets[target.type] + res
+  var res = md5(this.name) + ext;
+  const {assets} = this.options.pluginsOption
+  if (assets && assets[this.type]) {
+    res = assets[this.type] + res
   } else if (assets && assets['default']) {
     res = assets['default'] + res
   }
-  console.log('generateBundleName:', res, target.type, target.name)
   return res;
 }
 

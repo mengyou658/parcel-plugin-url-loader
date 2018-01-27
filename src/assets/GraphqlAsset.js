@@ -1,8 +1,8 @@
-const Asset = require('parcel-bundler/lib/assets/GraphqlAsset')
+const Asset = require('parcel-bundler/src/assets/GraphqlAsset')
 const generateBundleName = require('../generateBundleName')
 
 class GraphqlAsset extends Asset {
-  generateBundleName() {    return generateBundleName(this)  }
+  generateBundleName() {    return generateBundleName.bind(this)()  }
 }
 
 module.exports = GraphqlAsset;

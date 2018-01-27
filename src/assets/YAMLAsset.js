@@ -1,8 +1,8 @@
-const Asset = require('parcel-bundler/lib/assets/YAMLAsset')
+const Asset = require('parcel-bundler/src/assets/YAMLAsset')
 const generateBundleName = require('../generateBundleName')
 
 class YAMLAsset extends Asset {
-  generateBundleName() {    return generateBundleName(this)  }
+  generateBundleName() {    return generateBundleName.bind(this)()  }
 }
 
 module.exports = YAMLAsset;
