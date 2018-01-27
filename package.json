@@ -2,7 +2,7 @@
   "name": "parcel-plugin-url-loader-extra",
   "version": "1.2.2-5",
   "description": "url loader for parcel",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "author": "mengyou658 <mengyou658@163.com> (https://github.com/mengyou658)",
   "license": "MIT",
   "repository": {
@@ -17,15 +17,21 @@
   ],
   "files": [
     "lib",
+    "src",
     "package.json",
     "README.md",
     "LICENSE"
   ],
   "dependencies": {
+    "@babel/cli": "^7.0.0-beta.38",
+    "@babel/polyfill": "^7.0.0-beta.38",
     "log4js": "^2.5.2",
-    "mime": "^2.0.3"
+    "mime": "^2.0.3",
+    "rimraf": "^2.5.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.38",
+    "@babel/preset-env": "^7.0.0-beta.38",
     "parcel-bundler": "^1.5.0"
   }
 }

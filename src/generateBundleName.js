@@ -15,13 +15,13 @@ var generateBundleName = (target) => {
     const packageName = sanitizeFilename(target.package.name, {
       replacement: '-'
     });
-    // logger.error('packageName:', packageName, target.type, target.name)
+    console.log('packageName:', packageName, target.type, target.name)
     return packageName + ext;
   }
 
   // If target is the entry point of the root bundle, use the original filename
   if (target.name === target.options.mainFile) {
-    // logger.error('basename:', target.type, target.name)
+    console.log('basename:', target.type, target.name)
     return path.basename(target.name, path.extname(target.name)) + ext;
   }
 
@@ -33,7 +33,7 @@ var generateBundleName = (target) => {
   } else if (assets && assets['default']) {
     res = assets['default'] + res
   }
-  // logger.error('generateBundleName:', res, target.type, target.name)
+  console.log('generateBundleName:', res, target.type, target.name)
   return res;
 }
 
