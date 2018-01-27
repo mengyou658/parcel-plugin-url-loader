@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "rm -rf .cache && rm -rf build && parcel ./index.html -d build",
-    "build": "rm -rf .cache && rm -rf build && parcel build ./index.html --no-cache -d build/ --public-url /"
+    "build": "rm -rf .cache && rm -rf build && parcel build ./index.html --no-cache -d build/ --public-url /assets/"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",

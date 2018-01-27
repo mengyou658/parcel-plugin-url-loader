@@ -8,3 +8,5 @@ npm-debug.log
 .cache
 build
 dist
+.idea/
+*.iml
